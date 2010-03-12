@@ -2,3 +2,33 @@
 <p>
 Easily add (and update) a self-contained LiveBlog page on your Radiant Website.
 </p>
+
+<table class="index"> 
+	<thead>
+		<tr>
+			<th>Liveblog Title</th>
+			<th>Last Updated</th>
+			<th>Update Blog</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% if @liveblog_pages.empty? -%>
+		<tr>
+			<td colspan="3">There are no Liveblog Pages Yet</td>
+		</tr>
+	<% else -%>
+		<% @liveblog_pages.each do |page| -%>
+		<tr class="level_0 no_children node page">
+			<td class="page"><span class='w1'><%= page.live_blog_title -%></span></td>
+			<td><%= page.live_blog_title -%></td>
+			<td><a href="/admin/liveblog/new_entry/<%= page.id -%>">Post New Entry</a></td>
+		</tr>
+		<% end -%>
+	<% end -%>
+	</tbody>
+</table>
+<div id='actions'> 
+	<ul> 
+    	<li><a href="/admin/liveblog/new">Create New Liveblog</a></li> 
+    </ul> 
+</div>
