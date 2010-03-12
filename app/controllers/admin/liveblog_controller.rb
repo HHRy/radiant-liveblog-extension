@@ -5,6 +5,18 @@ class Admin::LiveblogController < ApplicationController
   end
   
   def new
+    @liveblog_page = LiveblogPage.new
+  end
+  
+  def create
+    @liveblog_page = LiveblogPage.new(params[:liveblog_page])
+    @liveblog_page.title = params[:liveblog_page][:live_blog_title]
+    if @liveblog_page.valid?
+      @liveblog_page.save
+      flash[:notice] = 'Your page was created successfully'
+      redirect_to :action => :index and return
+    end
+    render :action => :new
   end
   
   def new_entry
