@@ -1,0 +1,36 @@
+body {
+  font-family:'Gill Sans', sans-serif;
+}
+
+h2 {
+  width:800px;
+  margin:0 auto;
+}
+
+.details {
+  width:800px;
+  margin:0 auto;
+}
+
+.liveblogContent {
+  width:800px;
+  margin:0 auto;
+  list-style:none;
+}
+
+  .liveblogContent li {
+    padding:20px;
+    border-bottom:1px solid black;
+  }
+
+  .liveblogContent li p {
+    display:inline;
+  }
+
+.footer {
+  width:800px;
+  margin:0 auto;
+  font-size:x-small;
+  margin-top:20px;
+  text-align:center;
+}
