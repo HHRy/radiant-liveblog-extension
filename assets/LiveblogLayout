@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+  <head>
+    <title><r:title /></title>
+    <link rel="stylesheet" type="text/css" href="/liveblog-styles.css" />
+  </head>
+  <body>
+    <r:content part="liveblog-heading" />
+    <r:content part="liveblog-content" />
+
+    <p class="footer">
+      This liveblog is powered by Radiant CMS and Ryan Stenhouse's Liveblog Extension
+    </p>
+  </body>
+</html>

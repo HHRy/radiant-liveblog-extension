@@ -1,0 +1,7 @@
+<ul class="liveblogContent">
+  <r:liveblog:entries:each>
+  <li>
+    <strong><r:post_time /></strong>: <r:post_content />
+  </li>
+  </r:liveblog:entries:each>
+</ul>
