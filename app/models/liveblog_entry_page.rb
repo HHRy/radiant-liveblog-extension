@@ -1,0 +1,2 @@
+class LiveblogEntryPage < Page
+end

@@ -4,5 +4,6 @@ class AssociteLiveblogPagesWithPosts < ActiveRecord::Migration
   end
 
   def self.down
+    remove_column :liveblog_entries, :liveblog_page_id
   end
 end

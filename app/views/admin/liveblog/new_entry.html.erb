@@ -1,0 +1,22 @@
+<h1>Post To <%= h @liveblog_page.title -%></h1>
+
+<% form_for :liveblog_entry_page, @liveblog_entry_page, :url => {:action=>"create_entry", :controller=>"admin/liveblog"}, :html => {:id => 'new_page', :multipart => true, 'data-onsubmit_status'=>"Creating Post&#8230;"} do |f| %>
+
+<%= f.hidden_field :parent_id, :value => @liveblog_page.id -%>
+<%= f.hidden_field :class_name, :value => 'LiveblogEntryPage' -%>
+<%= f.hidden_field :title, :value => "#{Time.now.to_i}" -%>
+<%= f.hidden_field :slug, :value => "#{Time.now.to_i}" -%>
+<%= f.hidden_field :layout_id, :value => @layout.id -%>
+<%= f.hidden_field :breadcrumb, :value => Time.now.strftime("%H:%M")  -%>
+<%= f.hidden_field :status_id, :value => 100 -%>
+
+<textarea name="content" id="content"></textarea>
+
+<p class='buttons'> 
+  <input accesskey="S" class="button" name="commit" type="submit" value="Make Post" /> 
+  or
+  <a href="/admin/liveblog">Cancel</a> 
+</p>
+
+
+<% end -%>

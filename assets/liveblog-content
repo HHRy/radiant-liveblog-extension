@@ -1,7 +1,7 @@
 <ul class="liveblogContent">
-  <r:liveblog:entries:each>
+  <r:children:each  order="desc">
   <li>
-    <strong><r:post_time /></strong>: <r:post_content />
+    <strong><r:date format="%H:%M" /></strong>: <r:content />
   </li>
-  </r:liveblog:entries:each>
+  </r:children:each>
 </ul>

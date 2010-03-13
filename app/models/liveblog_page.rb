@@ -2,6 +2,7 @@ class LiveblogPage < Page
   validates_presence_of :live_blog_title
   validates_presence_of  :live_blog_description
   validates_presence_of  :live_blog_event_uri
+  
   has_many :liveblog_entries
   
     desc %{ 
@@ -21,9 +22,9 @@ class LiveblogPage < Page
         tag.locals.liveblog.send("#{method}")
       end
     end
-  
-    desc "Gives us the entries associated with this liveblog"
-    tag 'liveblog:entries' do |tag|
+    
+    def cache?
+      false
     end
-  
+
 end

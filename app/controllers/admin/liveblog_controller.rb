@@ -21,6 +21,8 @@ class Admin::LiveblogController < ApplicationController
     @liveblog_page.title = params[:liveblog_page][:live_blog_title]
     if @liveblog_page.valid?
       @liveblog_page.save
+      content = '<r:snippet name="liveblog-heading" /><r:snippet name="liveblog-content" />'
+      PagePart.create!(:page_id => @liveblog_page.id, :name => 'body', :filter_id => '', :content => content)
       flash[:notice] = 'Your page was created successfully'
       redirect_to :action => :index and return
     end
@@ -28,19 +30,26 @@ class Admin::LiveblogController < ApplicationController
   end
   
   def new_entry
-    @liveblog_page = params[:id].to_i
+    @liveblog_page = LiveblogPage.find(params[:id].to_i)
+    @liveblog_entry_page = LiveblogEntryPage.new
+    @layout = Layout.find(:first, :conditions => "name = 'LiveblogEntryLayout'")    
   end
   
   def create_entry
     if !request.post?
       redirect_to :action => :new_entry and return 
     end
-    @entry = LiveblogEntry.new
-    @entry.content = params[:liveblog_entry][:content]
-    @entry.liveblog_page_id = params[:liveblog_entry][:liveblog_page_id].to_i
+    @entry = LiveblogEntryPage.new(params[:liveblog_entry_page])
+    @liveblog_page = LiveblogPage.find(params[:liveblog_entry_page][:parent_id].to_i)
+    @layout = Layout.find(:first, :conditions => "name = 'LiveblogEntryLayout'")
+    
     if @entry.valid?
       flash[:notice] = "Your entry has been posted."
-      redirect_to :action => :new_entry and return 
+      @entry.save
+      PagePart.create!(:page_id => @entry.id, :name => 'body', :filter_id => 'Markdown', :content => params[:content])
+      redirect_to :action => :new_entry, :id => @liveblog_page.id and return 
+    else
+      render :action => :new_entry, :id => @liveblog_page.id
     end
   end
   
