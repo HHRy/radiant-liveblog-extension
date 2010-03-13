@@ -10,6 +10,7 @@ class LiveblogExtension < Radiant::Extension
      map.namespace :admin, :member => { :remove => :get } do |admin|
        admin.resources :liveblog
      end
+     map.connect '/admin/liveblog/:action/:id', :controller => 'admin/liveblog'       
    end
   
   def activate
