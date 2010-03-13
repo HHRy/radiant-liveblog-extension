@@ -18,6 +18,10 @@ pull down this extension to ./vendor/extensions/liveblog; then:
 
 <code>rake radiant:extensions:liveblog:migrate</code>
 
+As well as the extra fields and associations needed for the liveblogging being created,
+you'll also find two new snippets - liveblog-content and liveblog-heading. These are
+used by the default layout to display your liveblog to your users.
+
 Once the rake is complete, you will need to add an Archive page called <tt>Liveblogs</tt>
 and a layout called <tt>LiveblogLayout</tt> 
 
