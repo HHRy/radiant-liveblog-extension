@@ -7,7 +7,6 @@ Easily add (and update) a self-contained LiveBlog page on your Radiant Website.
 	<thead>
 		<tr>
 			<th>Liveblog Title</th>
-			<th>Last Updated</th>
 			<th colspan="2">Modify</th>
 		</tr>
 	</thead>
@@ -20,9 +19,8 @@ Easily add (and update) a self-contained LiveBlog page on your Radiant Website.
 		<% @liveblog_pages.each do |page| -%>
 		<tr class="level_0 no_children node page">
 			<td class="page"><span class='w1'>
-			<a href="/admin/liveblog/<%= page.id -%>/edit/"><img alt="" class="icon" src="/images/admin/page.png" title="" /><span class="title">&nbsp;<%= page.live_blog_title -%></span></a>
+			<a href="/admin/liveblog/<%= page.id -%>/edit/"><img alt="" class="icon" src="/images/admin/page.png" title="" /><span class="title">&nbsp;	<%= page.live_blog_title -%></span></a>
 			</span></td>
-			<td><%= page.live_blog_title -%></td>
 			<td class='add_child'><a href="/admin/liveblog/new_entry/<%= page.id -%>"><img alt="add post" src="/images/admin/add_post.png" /></a></td> 
 			                <td class='remove'><a href="/admin/pages/<%= page.id -%>/remove"><img alt="remove page" src="/images/admin/remove.png" /></a></td>
 		</tr>

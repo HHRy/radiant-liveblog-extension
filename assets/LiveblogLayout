@@ -2,6 +2,7 @@
   "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
   <head>
+	<meta http-equiv="refresh" content="5" />
     <title><r:title /></title>
     <link rel="stylesheet" type="text/css" href="/liveblog-styles.css" />
   </head>
