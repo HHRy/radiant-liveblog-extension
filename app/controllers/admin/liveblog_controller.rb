@@ -8,8 +8,12 @@ class Admin::LiveblogController < ApplicationController
     @liveblog_page = LiveblogPage.new
   end
   
+  def edit
+    @liveblog_page = LiveblogPage.find(params[:id])
+  end
+  
   def create
-    @archive_page = Page.find(:first, :conditions => "title = 'Liveblogs' AND class_name = 'ArchivePage'")
+    @archive_page = Page.find(:first, :conditions => "class_name = 'LiveblogArchivePage'")
     @layout = Layout.find(:first, :conditions => "name = 'LiveblogLayout'")
     @liveblog_page = LiveblogPage.new(params[:liveblog_page])
     @liveblog_page.layout_id = @layout.id

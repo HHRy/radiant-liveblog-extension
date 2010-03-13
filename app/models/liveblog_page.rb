@@ -4,7 +4,7 @@ class LiveblogPage < Page
   validates_presence_of  :live_blog_event_uri
   has_many :liveblog_entries
   
-    desc %{
+    desc %{ 
       *Usage:*
       <r:liveblog>...</r:liveblog>
     }
@@ -22,5 +22,8 @@ class LiveblogPage < Page
       end
     end
   
+    desc "Gives us the entries associated with this liveblog"
+    tag 'liveblog:entries' do |tag|
+    end
   
 end

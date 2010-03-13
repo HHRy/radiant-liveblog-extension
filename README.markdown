@@ -22,7 +22,7 @@ As well as the extra fields and associations needed for the liveblogging being c
 you'll also find two new snippets - liveblog-content and liveblog-heading. These are
 used by the default layout to display your liveblog to your users.
 
-Once the rake is complete, you will need to add an Archive page called <tt>Liveblogs</tt>
+Once the rake is complete, you will need to add an <tt>LiveblogArchive</tt> page
 and a layout called <tt>LiveblogLayout</tt> 
 
 Recommended default content for these pages can be found in the assets directory of the 

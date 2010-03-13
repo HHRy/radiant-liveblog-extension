@@ -1,0 +1,64 @@
+<h1>Edit A Liveblog</h1>
+<% form_for :liveblog_page, @liveblog_page, :url => {:action=>"update", :controller=>"admin/liveblog"}, :html => {:id => 'new_page', :multipart => true, 'data-onsubmit_status'=>"Updating page&#8230;"} do |f| %>
+
+<p class='title'> 
+  <label for='page_title'> 
+    Liveblog Title
+  </label> 
+  <%= f.text_field :live_blog_title, :size => 255, :maxlength => 255, :id => 'page_title', :class => 'textbox' -%>
+</p>
+
+<div id='extended_metadata'> 
+  <table class='fieldset'> 
+    <tr> 
+      <th class='label'> 
+        <label for='page_slug'> 
+          Slug
+        </label> 
+      </th> 
+      <td class='field'> 
+		<%= f.text_field :slug, :size => 100, :maxlength => 100, :id => 'page_slug', :class => 'textbox' -%>
+      </td> 
+    </tr> 
+    <tr> 
+      <th class='label'> 
+        <label for='page_breadcrumb'> 
+          Breadcrumb
+        </label> 
+      </th> 
+      <td class='field'> 
+		<%= f.text_field :breadcrumb, :size => 160, :maxlength => 160, :id => 'page_breadcrumb', :class => 'textbox' -%>
+      </td> 
+    </tr> 
+    <tr> 
+      <th class='label'> 
+        <label for='page_description'> 
+          Description
+        </label> 
+      </th> 
+      <td class='field'> 
+		  <%= f.text_field :live_blog_description, :size => 255, :maxlength => 255, :id => 'page_description', :class => 'textbox' -%>
+      </td> 
+    </tr> 
+    <tr> 
+      <th class='label'> 
+        <label for='page_keywords'> 
+          Event URI
+        </label> 
+      </th> 
+      <td class='field'> 
+		  <%= f.text_field :live_blog_event_uri, :size => 255, :maxlength => 255, :id => 'page_description', :class => 'textbox' -%>
+      </td> 
+    </tr> 
+  
+  </table> 
+</div>
+
+	 
+ <p class='buttons'> 
+   <input accesskey="S" class="button" name="commit" type="submit" value="Update Liveblog Page" /> 
+   or
+   <a href="/admin/liveblog">Cancel</a> 
+ </p>
+
+<% end -%>
